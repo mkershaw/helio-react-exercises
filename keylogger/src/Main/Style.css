@@ -1,4 +1,12 @@
 body {
-    background-color: plum;
+    background-color: peachpuff;
     text-align: center;
+}
+
+#arraylist>ul{
+    list-style: none;
+    padding: 0;
+    
+
+
 }
