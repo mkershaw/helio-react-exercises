@@ -8,8 +8,8 @@ class Main extends Component {
     state = {
         textValue: '',
         listText: [],
-        list: ['Street', 'Sportster', 'Dyna', 'SoftTail', 'V-Rod', 'Touring', 'CVO', 'Trike', 'Limited']
-
+        list: ['Street', 'Sportster', 'Dyna', 'SoftTail', 'V-Rod', 'Touring', 'CVO', 'Trike', 'Limited'],
+        searchText: ''
     }
     addToList = () => this.setState({ list: [this.state.textValue, ...this.state.list] })
 
@@ -18,10 +18,11 @@ class Main extends Component {
         textValue: event.target.value
 
     })
+    handleSearch = (event) => this.setState({
+        //list: this.state.list.filter(item=> item.includes(event.target.value))
+        searchText: event.target.value
+    })
 
-
-    listItems = this.state.list.map((item) =>
-        <li> {item}</li>)
     addNumbers = () => {
 
 
@@ -53,12 +54,14 @@ class Main extends Component {
                 <div>
                     <div id="arraylist" class="newExercise">
                         <h1> Array List </h1>
+                        <input type="text" onChange={this.handleSearch} />
+
 
                         <ul> <h2>I Love Harley Motorcycles:</h2>
 
 
 
-                            {this.state.list.map((item) =>
+                            {this.state.list.filter(item => item.includes(this.state.searchText)).map((item) =>
                                 <li> {item}</li>)}
                         </ul>
 
